@@ -11,12 +11,10 @@ const App = () => {
     useEffect(() => {
         try {
             fetch(`${url}/start-server`)
+                .then(() => setLoading(false));
         }
         catch (error) {
             console.error('Error fetching data:', error);
-        }
-        finally {
-            setLoading(false);
         }
     }, []);
     const handleFormSubmit = async (text) => {
